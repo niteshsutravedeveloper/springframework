@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- <bean id="locateUsController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="locateus"></property>
+</bean>
+<bean id="ourServicesController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="ourservices"></property>
+</bean>
+ -->
+ 
+ <bean id="urlFilenameViewController"  class="org.springframework.web.servlet.mvc.UrlFilenameViewController"></bean>
+<bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="/locateus.htm">urlFilenameViewController </prop>
+<prop key="/ourservices.htm">urlFilenameViewController</prop>
+</props>
+</property>
+</bean>
+<bean id="viewresolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/"/>
+<property name="suffix" value=".jsp"></property>
+</bean>
+</beans>
