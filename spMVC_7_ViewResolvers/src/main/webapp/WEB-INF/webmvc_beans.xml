@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+<bean id="odi-team-controller" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="odi_team"></property>
+</bean>
+<bean id="test-team-controller" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="test_team"></property>
+</bean>
+
+<bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="/oditeam.htm">odi-team-controller</prop>
+<prop key="/testteam.htm">test-team-controller</prop>
+</props>
+</property>
+</bean>
+
+
+<!-- <bean id="urlBasedViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/"/>
+<property name="suffix" value=".jsp"/>
+<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+</bean>
+ -->
+<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/"/>
+<property name="suffix" value=".jsp"></property>
+</bean>
+ -->
+ <!-- <bean id="xmlViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+ <property name="location" value="/WEB-INF/views.xml"></property>
+
+ </bean>
+ --> 
+ <bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+    
+ </bean>
+ <bean id="test_team" class="org.springframework.web.servlet.view.JstlView">
+<property name="url" value="/WEB-INF/jsp/test_team.jsp"></property>
+</bean>
+ <bean id="odi_team" class="org.springframework.web.servlet.view.JstlView">
+ <property name="url" value="/WEB-INF/jsp/odi_team.jsp"></property>
+ </bean>
+ 
+ </beans>
