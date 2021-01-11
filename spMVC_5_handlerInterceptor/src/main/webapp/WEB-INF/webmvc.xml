@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- <bean id="simpleHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="/bookticket.htm">bookticket</prop>
+<prop key="/cancelticket.htm">cancelticket</prop>
+<prop key="/printticket.htm">printticket</prop>
+<prop key="/myhistory.htm">myhistory</prop>
+</props>
+</property>
+</bean>
+ -->
+ 
+ <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+ <property name="interceptors">
+ <list>
+ <ref bean="maintenenceInterceptor"/>
+ </list>
+ </property>
+ </bean>
+<bean id="maintenenceInterceptor" class="com.nt.interceptor.MaintenceInterceptor"></bean>
+
+<bean id="/bookticket.htm" class="com.nt.controller.BookTicketController"></bean>
+<bean id="/cancelticket.htm" class="com.nt.controller.CancelTicketController"></bean>
+<bean id="/printticket.htm" class="com.nt.controller.PrintTicketController"></bean>
+<bean id="/myhistory.htm" class="com.nt.controller.MyHistoryController"></bean>
+
+
+<bean  id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/"></property>
+<property name="suffix" value=".jsp"></property>
+
+</bean>
+</beans>
