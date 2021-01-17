@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+<bean id="/registerDoctorController.htm" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="registerdoctor"></property>
+</bean>
+<bean id="/admitPatientController.htm" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="admitpatient"></property>
+</bean>
+
+
+<!-- <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="/admitpatient.htm">admitPatientController</prop>
+<prop key="/registerdoctor.htm">registerDoctorController</prop>
+</props>
+</property>
+</bean>
+ -->
+ 
+<!-- <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/"/>
+<property name="suffix" value=".jsp"/>
+</bean>
+ -->
+ <!-- <bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+ 
+  </bean> -->
+  
+  <!-- <bean id="xmlViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+  <property name="location" value="/WEB-INF/views.xml"></property>
+  </bean>
+	 -->
+	 <bean id="urlViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	 <property name="prefix" value="/WEB-INF/jsp/"/>
+	 <property name="suffix" value=".jsp"/>
+	 <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+	 </bean>
+	 
+	 
+	 <!--<bean id="admitpatient" class="org.springframework.web.servlet.view.JstlView"> 
+		<property name="url" value="/WEB-INF/jsp/admitpatient.jsp"></property> </bean> 
+		<bean id="registerdoctor" class="org.springframework.web.servlet.view.JstlView"> 
+		<property name="url" value="/WEB-INF/jsp/registerdoctor.jsp"></property> 
+		</bean> --> 
+ 
+ </beans>
